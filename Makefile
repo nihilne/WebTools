@@ -6,3 +6,6 @@ watch-css:
 
 build-css:
 	tailwindcss -m -i app/static/css/input.css -o app\static\css\styles.css
+
+build-docker:
+	docker build -t nihilne/webtools .
