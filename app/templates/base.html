@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <title>{% block title %}{% endblock %} | WebTools</title>
+</head>
+
+<body>
+    <div class="flex min-h-screen">
+        <div
+            class="sidebar w-64 h-screen my-6 py-4 bg-gradient-to-t from-purple-900 to-purple-800 rounded-r-4xl shadow-xl text-white">
+            <h1 class="text-3xl text-center font-bold"><a href="{{ url_for('main.home') }}">WebTools</a></h1>
+            <p class=" text-center mb-4">{{ app_version }}</p>
+            <nav class="space-y-3 mx-4">
+                {% for item in nav_items %}
+                <a href="{{ url_for(item.endpoint) }}"
+                    class="block px-3 py-2 rounded-lg hover:bg-purple-700 hover:scale-105 transition duration-75">
+                    {{ item.name }}
+                </a>
+                {% endfor %}
+            </nav>
+        </div>
+        <div class="content flex-1 m-6 p-6 px-10 pt-10 rounded-4xl shadow-lg border border-gray-300 bg-blue-50">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+    <div class="footer text-lg text-center my-4">
+        Open-source website by <a class="text-purple-800 underline" href="https://nihilne.com">NIHILNE</a>
+    </div>
+</body>
+
+</html>

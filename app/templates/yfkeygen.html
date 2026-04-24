@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<h1 class="text-3xl">YetiForce Key Generator</h1>
+<div class="my-4" id="output"></div>
+<button hx-post="/yfkeygen/generate" hx-target="#output" hx-swap="innerHTML"
+    class="cursor-pointer px-4 py-2 bg-purple-600 text-white rounded-lg hover:scale-105 transition duration-75">
+    Generate Key
+</button>
+{% endblock %}

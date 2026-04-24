@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+@layer base {
+    html {
+        font-family: Helvetica, Arial, sans-serif;
+        background-color: azure;
+    }
+}
