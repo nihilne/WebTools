@@ -1,5 +1,5 @@
-from flask import Blueprint, render_template
-from app.services.YFKeygenService import generate_key
+from flask import Blueprint, render_template, request
+from app.services.YFKeygenService import YFKeygenService
 
 main = Blueprint("main", __name__)
 
@@ -16,7 +16,7 @@ def yfkeygen():
 
 @main.route("/yfkeygen/generate", methods=["POST"])
 def yfkeygen_generate():
-    key = generate_key()
+    key = YFKeygenService.generate_key()
     return f"""
     <div class="w-min mt-4 p-3 border rounded-lg flex items-center justify-start">
         <span id="generated-key">{key}</span>
