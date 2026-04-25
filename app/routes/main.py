@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request
-from app.services.YFKeygenService import YFKeygenService
+from app.services.yf_keygen_service import YFKeygenService
 
 main = Blueprint("main", __name__)
 
