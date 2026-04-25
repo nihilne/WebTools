@@ -220,3 +220,4 @@ __marimo__/
 # Custom
 .vscode
 node_modules
+styles.css
