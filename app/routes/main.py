@@ -1,5 +1,7 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, send_file
+
 from app.services.yf_keygen_service import YFKeygenService
+from app.services.csv_splitter_service import CsvSplitterService
 
 main = Blueprint("main", __name__)
 
@@ -31,3 +33,26 @@ def yfkeygen_generate():
 @main.route("/csvsplitter")
 def csvsplitter():
     return render_template("csvsplitter.html")
+
+
+@main.route("/csvsplitter/upload", methods=["POST"])
+def csvsplitter_upload():
+    file = request.files.get("file")
+    has_header = request.form.get("has_header") == "1"
+    chunk_size = int(request.form.get("chunk_size", 50))
+
+    if not file:
+        return {"error": "No file provided"}, 400
+
+    if not CsvSplitterService.allowed_file(file.filename):
+        return {"error": "Invalid file type"}, 400
+
+    processed_file = CsvSplitterService.split_file_to_zip(file, chunk_size, has_header)
+    response = send_file(
+        processed_file,
+        mimetype="application/zip",
+        as_attachment=True,
+        download_name="csv_files.zip",
+    )
+    response.headers["HX-Trigger"] = "downloadReady"
+    return response
