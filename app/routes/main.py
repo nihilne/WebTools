@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, send_file
+from flask import Blueprint, render_template, request, send_file, abort
 
 from app.services.yf_keygen_service import YFKeygenService
 from app.services.csv_splitter_service import CsvSplitterService
@@ -42,10 +42,10 @@ def csvsplitter_upload():
     chunk_size = int(request.form.get("chunk_size", 50))
 
     if not file:
-        return {"error": "No file provided"}, 400
+        abort(400, "No file provided.")
 
     if not CsvSplitterService.allowed_file(file.filename):
-        return {"error": "Invalid file type"}, 400
+        abort(400, "Invalid file type.")
 
     processed_file = CsvSplitterService.split_file_to_zip(file, chunk_size, has_header)
     response = send_file(

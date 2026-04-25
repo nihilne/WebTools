@@ -1,5 +1,6 @@
-from flask import Flask
+from flask import Flask, render_template
 from app.routes import all_blueprints
+from werkzeug.exceptions import BadRequest, NotFound
 
 __version__ = "v1.1"
 
@@ -13,6 +14,14 @@ def create_app():
     app = Flask(__name__)
     for bp in all_blueprints:
         app.register_blueprint(bp)
+
+    @app.errorhandler(BadRequest)
+    def handle_bad_requests(error):
+        return render_template("400.html", error=error), 400
+
+    @app.errorhandler(NotFound)
+    def handle_not_found(error):
+        return render_template("404.html"), 404
 
     @app.context_processor
     def inject_context():
