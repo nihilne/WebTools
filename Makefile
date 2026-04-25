@@ -9,3 +9,7 @@ build-css:
 
 build-docker:
 	docker build -t nihilne/webtools .
+
+build-js:
+	terser app/static/js/main.js \
+	-o app/static/js/main.min.js -c -m
