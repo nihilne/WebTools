@@ -11,16 +11,15 @@
     <title>{% block title %}{% endblock %} | WebTools</title>
 </head>
 
-<body>
+<body class="bg-off-white">
     <div class="flex min-h-screen">
-        <div
-            class="sidebar w-64 h-screen my-6 py-4 bg-gradient-to-t from-purple-900 to-purple-800 rounded-r-4xl shadow-xl text-white">
+        <div class="sidebar w-64 h-screen my-6 py-4 bg-main-red rounded-r-4xl shadow-xl text-white">
             <h1 class="text-3xl text-center font-bold"><a href="{{ url_for('main.home') }}">WebTools</a></h1>
             <p class=" text-center mb-4">{{ app_version }}</p>
             <nav class="space-y-3 mx-4">
                 {% for item in nav_items %}
                 <a href="{{ url_for(item.endpoint) }}"
-                    class="block px-3 py-2 rounded-lg hover:bg-purple-700 hover:scale-105 transition duration-75">
+                    class="block px-3 py-2 rounded-lg hover:bg-darker-red hover:scale-105 transition duration-75">
                     {{ item.name }}
                 </a>
                 {% endfor %}
@@ -31,7 +30,7 @@
         </div>
     </div>
     <div class="footer text-lg text-center my-4">
-        Open-source website by <a class="text-purple-800 underline" href="https://nihilne.com">NIHILNE</a>
+        Open-source website by <a class="text-main-red underline" href="https://nihilne.com">NIHILNE</a>
     </div>
 </body>
 

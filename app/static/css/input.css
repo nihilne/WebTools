@@ -3,6 +3,14 @@
 @layer base {
     html {
         font-family: Helvetica, Arial, sans-serif;
-        background-color: azure;
+        scroll-behavior: smooth;
     }
+}
+
+@theme {
+    --color-main-red: #ef233c;
+    --color-darker-red: #d32136;
+    --color-secondary-black: #2b2d42;
+    --color-off-white: #edf2f4;
+    --color-off-gray: #c9cbcc;
 }
