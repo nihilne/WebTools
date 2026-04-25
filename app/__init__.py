@@ -1,7 +1,7 @@
 from flask import Flask
 from app.routes import all_blueprints
 
-__version__ = "v1.0"
+__version__ = "v1.1"
 
 NAV_ITEMS = [
     {"name": "YetiForce Key Generator", "endpoint": "main.yfkeygen"},
