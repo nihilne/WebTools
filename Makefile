@@ -11,11 +11,11 @@ js:
 	npx terser app/static/js/main.js \
 	-o app/static/js/main.min.js -c -m
 
-docker-run:
+run:
 	docker rm -f webtools || true
 	docker run -d --name webtools -p 5000:8000 nihilne/webtools
 
 build: css js 
 	docker build -t nihilne/webtools .
 
-run-build: build docker-run
+run-build: run build
