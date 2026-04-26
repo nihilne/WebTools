@@ -13,7 +13,7 @@ js:
 
 run:
 	docker rm -f webtools || true
-	docker run -d --name webtools -p 5000:8000 nihilne/webtools
+	docker run -d --name webtools -p 8000:8000 nihilne/webtools
 
 build: css js 
 	docker build -t nihilne/webtools .
