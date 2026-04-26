@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, send_file, abort
 
-from app.services.yf_keygen_service import YFKeygenService
+from app.services.keygen_service import KeygenService
 from app.services.csv_splitter_service import CsvSplitterService
 from app.services.vat_calc import VatCalc
 
@@ -12,14 +12,14 @@ def home():
     return render_template("index.html")
 
 
-@main.route("/yfkeygen")
-def yfkeygen():
-    return render_template("yfkeygen.html")
+@main.route("/keygen")
+def keygen():
+    return render_template("keygen.html")
 
 
-@main.route("/yfkeygen/generate", methods=["POST"])
-def yfkeygen_generate():
-    key = YFKeygenService.generate_key()
+@main.route("/keygen/generate", methods=["POST"])
+def keygen_generate():
+    key = KeygenService.generate_key()
     return f"""
     <div class="w-min mt-4 p-3 border rounded-lg flex items-center justify-start">
         <span id="generated-key">{key}</span>

@@ -3,7 +3,7 @@ from random import randint
 from hashlib import sha1
 
 
-class YFKeygenService:
+class KeygenService:
     @staticmethod
     def generate_key():
         key = str(time() + randint(1, 9999999))

@@ -1,10 +1,10 @@
 {% extends "base.html" %}
-{% block title %}YF Key Generator{% endblock %}
+{% block title %}SHA1 Key Generator{% endblock %}
 {% block content %}
-<h1 class="text-3xl">YetiForce Key Generator</h1>
-<p>Generate a YetiForce-compatible app key.</p>
+<h1 class="text-3xl">SHA1 Key Generator</h1>
+<p>Generate a SHA1 app key.</p>
 <div class="my-4" id="output"></div>
-<button hx-post="/yfkeygen/generate" hx-target="#output" hx-swap="innerHTML"
+<button hx-post="/keygen/generate" hx-target="#output" hx-swap="innerHTML"
     class="cursor-pointer px-4 py-2 bg-purple-600 text-white rounded-lg hover:scale-105 transition duration-75">
     Generate Key
 </button>
