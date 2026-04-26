@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, request, send_file, abort
 
 from app.services.yf_keygen_service import YFKeygenService
 from app.services.csv_splitter_service import CsvSplitterService
+from app.services.vat_calc import VatCalc
 
 main = Blueprint("main", __name__)
 
@@ -56,3 +57,17 @@ def csvsplitter_upload():
     )
     response.headers["HX-Trigger"] = "downloadReady"
     return response
+
+
+@main.route("/vatcalc")
+def vatcalc():
+    return render_template("vatcalc.html")
+
+
+@main.route("/vatcalc/calculate", methods=["POST"])
+def vatcalc_calculate():
+    amount = float(request.form.get("amount", 0))
+    rate = float(request.form.get("rate", 0))
+    mode = request.form.get("mode")
+    result = VatCalc.calculate_vat(amount, rate, mode)
+    return f"<p>Result: {result}</p>"

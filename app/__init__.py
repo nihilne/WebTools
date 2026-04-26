@@ -7,6 +7,7 @@ __version__ = "v1.1.1"
 NAV_ITEMS = [
     {"name": "YetiForce Key Generator", "endpoint": "main.yfkeygen"},
     {"name": "CSV File Splitter", "endpoint": "main.csvsplitter"},
+    {"name": "VAT Calculator", "endpoint": "main.vatcalc"},
 ]
 
 
