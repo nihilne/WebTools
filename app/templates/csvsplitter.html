@@ -4,7 +4,7 @@
 <h1 class="text-3xl">CSV Splitter</h1>
 <p>Upload a CSV file and split it into multiple files.</p>
 <form action="/csvsplitter/upload" method="POST" enctype="multipart/form-data" class="my-4 space-y-4">
-    <input type="file" name="file" accept=".csv" class="block border p-2 rounded-lg" />
+    <input type="file" name="file" accept=".csv" class="block border p-2 rounded-lg" required>
     <label class="flex items-center gap-2">
         <span>Rows per file:</span>
         <input type="number" name="chunk_size" value="50" min="1" class="border rounded px-2 py-1 w-24">
