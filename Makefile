@@ -18,4 +18,4 @@ run:
 build: css js 
 	docker build -t nihilne/webtools .
 
-run-build: run build
+deploy: build run
