@@ -2,7 +2,7 @@ from flask import Flask, render_template
 from app.routes import all_blueprints
 from werkzeug.exceptions import BadRequest, NotFound
 
-__version__ = "v1.2"
+__version__ = "v1.2.1"
 
 NAV_ITEMS = [
     {"name": "YetiForce Key Generator", "endpoint": "main.yfkeygen"},
