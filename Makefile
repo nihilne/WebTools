@@ -3,6 +3,9 @@
 dev:
 	flask run --debug
 
+sort-imports:
+	ruff check --select I --fix
+
 watch-css:
 	npx tailwindcss -i app/static/css/input.css -o app/static/css/styles.css --watch
 

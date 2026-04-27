@@ -1,14 +1,8 @@
-from flask import Flask, render_template
-from app.routes import all_blueprints
+from flask import Flask, render_template, request
 from werkzeug.exceptions import BadRequest, NotFound
 
-__version__ = "v1.2.2"
-
-NAV_ITEMS = [
-    {"name": "SHA1 Key Generator", "endpoint": "main.keygen"},
-    {"name": "CSV File Splitter", "endpoint": "main.csvsplitter"},
-    {"name": "VAT Calculator", "endpoint": "main.vatcalc"},
-]
+from app import config
+from app.routes import all_blueprints
 
 
 def create_app():
@@ -22,13 +16,18 @@ def create_app():
 
     @app.errorhandler(NotFound)
     def handle_not_found(error):
+        if request.headers.get("HX-Request"):
+            return (
+                "<div class='text-red-500'>404 Not Found: This does not exist!?</div>",
+                404,
+            )
         return render_template("errors/404.html"), 404
 
     @app.context_processor
     def inject_context():
         return {
-            "nav_items": NAV_ITEMS,
-            "app_version": __version__,
+            "nav_items": config.NAV_ITEMS,
+            "app_version": config.__version__,
         }
 
     return app
