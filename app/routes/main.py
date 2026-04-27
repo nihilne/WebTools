@@ -32,7 +32,7 @@ def randomgen_generate():
     <div class="w-min mt-4 p-3 border rounded-lg flex items-center justify-start">
         <span id="generated-key">{key}</span>
         <button type="button" onclick="copyKey(this)"
-            class="cursor-pointer ml-4 px-3 py-1 bg-green-600 text-white rounded-lg hover:bg-green-700 hover:scale-105 transition duration-75">
+            class="cursor-pointer ml-4 px-3 py-1 bg-green-600 text-white rounded-lg hover:scale-105 transition duration-75">
             Copy
         </button>
     </div>
