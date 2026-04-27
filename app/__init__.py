@@ -16,6 +16,11 @@ def create_app():
 
     @app.errorhandler(NotFound)
     def handle_not_found(error):
+        if request.headers.get("HX-Request"):
+            return (
+                "<div class='text-red-500'>404 Not Found: This does not exist!?</div>",
+                404,
+            )
         return render_template("errors/404.html"), 404
 
     @app.context_processor
