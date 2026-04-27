@@ -27,8 +27,8 @@ def create_app():
     @app.context_processor
     def inject_context():
         return {
-            "nav_items": NAV_ITEMS,
-            "app_version": __version__,
+            "nav_items": config.NAV_ITEMS,
+            "app_version": config.__version__,
         }
 
     return app
