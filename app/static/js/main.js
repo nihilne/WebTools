@@ -12,3 +12,7 @@ function copyKey(button) {
         button.dataset.timeoutId = timeoutId;
     });
 }
+
+function setVAT(value) {
+    document.getElementById("vat-input").value = value;
+}
