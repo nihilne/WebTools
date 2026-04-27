@@ -1,14 +1,8 @@
-from flask import Flask, render_template
-from app.routes import all_blueprints
+from flask import Flask, render_template, request
 from werkzeug.exceptions import BadRequest, NotFound
 
-__version__ = "v1.2.2"
-
-NAV_ITEMS = [
-    {"name": "SHA1 Key Generator", "endpoint": "main.keygen"},
-    {"name": "CSV File Splitter", "endpoint": "main.csvsplitter"},
-    {"name": "VAT Calculator", "endpoint": "main.vatcalc"},
-]
+from app import config
+from app.routes import all_blueprints
 
 
 def create_app():
