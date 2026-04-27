@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Random Generator{% endblock %}
+{% block content %}
+<h1 class="text-3xl">Random Generator</h1>
+<p>Generate randomized values in different formats.</p>
+<form hx-post="/randomgen/generate" hx-target="#output" hx-swap="innerHTML" class="my-4">
+    <label class="flex items-center gap-2">
+        <span>Generator:</span>
+        <select name="mode" class="border rounded px-2 py-2">
+            <option value="sha">Custom SHA1</option>
+            <option value="uuid">UUID v4</option>
+        </select>
+    </label>
+    <div class="my-4 whitespace-nowrap" id="output"></div>
+    <button type="submit"
+        class="cursor-pointer px-4 py-2 bg-purple-600 text-white rounded-lg hover:scale-105 transition duration-75">
+        Generate Key
+    </button>
+</form>
+{% endblock %}
