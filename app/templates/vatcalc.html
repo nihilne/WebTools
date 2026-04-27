@@ -4,20 +4,28 @@
 <h1 class="text-3xl">VAT Calculator</h1>
 <p>Add or remove the VAT amount of a value.</p>
 <form hx-post="/vatcalc/calculate" hx-target="#output" hx-swap="innerHTML" class="my-4 space-y-4">
-    <label class="flex items-center gap-2">
-        <span>Operation:</span>
-        <select name="mode" class="border rounded px-2 py-1">
-            <option value="add">Add VAT</option>
-            <option value="remove">Remove VAT</option>
-        </select>
-    </label>
+    <div class="flex gap-2">
+        <label class="cursor-pointer">
+            <input type="radio" name="mode" value="add" class="hidden peer">
+            <span class="px-4 py-2 border rounded-lg peer-checked:bg-green-500 peer-checked:text-white">
+                Add
+            </span>
+        </label>
+
+        <label class="cursor-pointer">
+            <input type="radio" name="mode" value="remove" class="hidden peer" checked>
+            <span class="px-4 py-2 border rounded-lg peer-checked:bg-orange-500 peer-checked:text-white">
+                Remove
+            </span>
+        </label>
+    </div>
     <label class="flex items-center gap-2">
         <span>Amount:</span>
-        <input type="number" name="amount" step="0.01" class="border rounded px-2 py-1 w-24" required>
+        <input type="number" name="amount" step="0.01" class="border rounded-lg px-2 py-2 w-32" required>
     </label>
     <label class="flex items-center gap-2">
         <span>VAT:</span>
-        <input type="number" name="rate" step="0.01" class="border rounded px-2 py-1 w-24" required>
+        <input type="number" name="rate" step="0.01" class="border rounded-lg px-2 py-2 w-24" required>
     </label>
     <button type="submit"
         class="cursor-pointer px-4 py-2 bg-purple-600 text-white rounded-lg hover:scale-105 transition">
