@@ -221,3 +221,4 @@ __marimo__/
 .vscode
 node_modules
 styles.css
+main.min.js
