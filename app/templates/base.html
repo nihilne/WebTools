@@ -41,12 +41,20 @@
                 {% endfor %}
             </nav>
         </div>
-        <div class="content flex-1 m-6 p-6 px-10 pt-10 rounded-4xl shadow-lg border border-gray-300 bg-blue-50">
+        <div class="flex-1 m-6 p-6 px-10 pt-10 rounded-4xl shadow-lg border border-gray-300 bg-blue-50">
             {% block content %}{% endblock %}
         </div>
     </div>
-    <div class="footer text-lg text-center my-4">
-        Open-source website by <a class="text-main-red underline" href="https://nihilne.com">NIHILNE</a>
+    <div class="text-lg text-center my-4">
+        Created by <span class="text-main-red">NIHILNE</span>
+    </div>
+    <div class="text-lg text-center mb-4 flex justify-center gap-4">
+        <a class="text-main-red underline" href="https://nihilne.com">
+            <i class="fa-solid fa-globe text-2xl"></i>
+        </a>
+        <a class="text-main-red underline" href="https://github.com/nihilne/webtools">
+            <i class="fa-brands fa-github text-2xl"></i>
+        </a>
     </div>
 </body>
 
