@@ -1,4 +1,4 @@
-__version__ = "v1.3"
+__version__ = "v1.3.1"
 
 NAV_ITEMS = [
     {"name": "Random Generator", "endpoint": "main.randomgen"},
