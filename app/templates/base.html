@@ -30,6 +30,11 @@
 <body class="bg-off-white font-montserrat font-medium">
     <div class="flex min-h-screen">
         <div class="sidebar w-64 h-screen my-6 py-4 bg-main-red rounded-r-4xl shadow-xl text-white">
+            <div class="flex justify-center gap-2">
+                <i class="fa-solid fa-screwdriver-wrench text-xl my-2 tool-icon"></i>
+                <i class="fa-solid fa-gear text-xl my-2 tool-icon"></i>
+                <i class="fa-solid fa-scissors text-xl my-2 tool-icon"></i>
+            </div>
             <h1 class="text-3xl text-center font-bold"><a href="{{ url_for('main.home') }}">WebTools</a></h1>
             <p class=" text-center mb-4">{{ app_version }}</p>
             <nav class="space-y-3 mx-4">

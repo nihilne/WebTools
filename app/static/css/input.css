@@ -13,3 +13,17 @@
     --color-off-white: #edf2f4;
     --color-off-gray: #c9cbcc;
 }
+
+@keyframes spin-once {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.spin-once {
+    animation: spin-once 0.5s ease-in-out;
+}

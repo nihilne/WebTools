@@ -16,3 +16,23 @@ function copyKey(button) {
 function setVAT(value) {
     document.getElementById("vat-input").value = value;
 }
+
+function randomNumber() {
+    return Math.floor(Math.random() * 15);
+}
+
+function animateToolIcons() {
+    if (randomNumber() != randomNumber()) {
+        return;
+    }
+    const icons = document.querySelectorAll(".tool-icon");
+    icons.forEach((icon, i) => {
+        setTimeout(() => {
+            icon.classList.add("spin-once");
+        }, i * 60);
+    });
+}
+
+window.addEventListener("load", () => {
+    animateToolIcons();
+});
