@@ -1,4 +1,10 @@
-from flask import Blueprint, abort, render_template, request, send_file
+from flask import (
+    Blueprint,
+    abort,
+    render_template,
+    request,
+    send_file,
+)
 
 from app.services.csv_splitter_service import CsvSplitterService
 from app.services.random_gen_service import RandomGenService
