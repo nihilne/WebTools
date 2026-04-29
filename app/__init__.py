@@ -10,18 +10,19 @@ def create_app():
     for bp in all_blueprints:
         app.register_blueprint(bp)
 
-    @app.errorhandler(BadRequest)
-    def handle_bad_requests(error):
-        return render_template("errors/400.html", error=error), 400
-
     @app.errorhandler(NotFound)
     def handle_not_found(error):
         if request.headers.get("HX-Request"):
-            return (
-                "<div class='text-red-500'>404 Not Found: This does not exist!?</div>",
-                404,
-            )
-        return render_template("errors/404.html"), 404
+            return "<div class='text-red-500'>404 Not Found</div>", 404
+
+        return render_template("errors/404.html", error=error), 404
+
+    @app.errorhandler(HTTPException)
+    def handle_http_exception(error):
+        if 400 <= error.code < 500:
+            return render_template("errors/4xx.html", error=error), error.code
+
+        return error
 
     @app.context_processor
     def inject_context():
