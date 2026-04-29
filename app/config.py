@@ -1,7 +1,25 @@
-__version__ = "v1.3.1"
+import os
 
-NAV_ITEMS = [
-    {"name": "Random Generator", "endpoint": "main.randomgen"},
-    {"name": "CSV File Splitter", "endpoint": "main.csvsplitter"},
-    {"name": "VAT Calculator", "endpoint": "main.vatcalc"},
-]
+from cachelib.file import FileSystemCache
+
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+
+
+class Config:
+    APP_VERSION = "v1.3.1"
+
+    NAV_ITEMS = [
+        {"name": "Random Generator", "endpoint": "main.randomgen"},
+        {"name": "CSV File Splitter", "endpoint": "main.csvsplitter"},
+        {"name": "VAT Calculator", "endpoint": "main.vatcalc"},
+        {"name": "Spotify Web API", "endpoint": "main.spotify"},
+    ]
+
+    SESSION_TYPE = "cachelib"
+    SESSION_PERMANENT = False
+    SESSION_USE_SIGNER = True
+    SESSION_CACHELIB = FileSystemCache(
+        cache_dir=os.path.join(BASE_DIR, "flask_session"),
+        threshold=500,
+        default_timeout=3600,
+    )

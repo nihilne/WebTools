@@ -1,12 +1,21 @@
-from flask import Flask, render_template, request
-from werkzeug.exceptions import BadRequest, NotFound
+import secrets
 
-from app import config
+from dotenv import load_dotenv
+from flask import Flask, render_template, request
+from flask_session import Session
+from werkzeug.exceptions import NotFound, HTTPException
+
 from app.routes import all_blueprints
 
+load_dotenv()
 
-def create_app():
+
+def create_app(config_class="app.config.Config"):
     app = Flask(__name__)
+    app.secret_key = secrets.token_hex(32)
+    app.config.from_object(config_class)
+    Session(app=app)
+
     for bp in all_blueprints:
         app.register_blueprint(bp)
 
@@ -27,8 +36,8 @@ def create_app():
     @app.context_processor
     def inject_context():
         return {
-            "nav_items": config.NAV_ITEMS,
-            "app_version": config.__version__,
+            "nav_items": app.config["NAV_ITEMS"],
+            "app_version": app.config["APP_VERSION"],
         }
 
     return app
