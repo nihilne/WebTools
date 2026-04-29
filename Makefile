@@ -20,8 +20,10 @@ js:
 	-o app/static/js/main.min.js -c -m
 
 run:
-	docker rm -f webtools || true
-	docker run -d --name webtools -p 127.0.0.1:8000:8000 nihilne/webtools
+	docker compose up -d
+
+stop:
+	docker compose down
 
 build: npm css js 
 	docker build -t nihilne/webtools .
