@@ -222,3 +222,4 @@ __marimo__/
 node_modules
 styles.css
 main.min.js
+flask_session/
