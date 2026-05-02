@@ -10,20 +10,20 @@ from app.services.csv_splitter_service import CsvSplitterService
 from app.services.random_gen_service import RandomGenService
 from app.services.vat_calc import VatCalc
 
-main = Blueprint("main", __name__)
+bp = Blueprint("main", __name__)
 
 
-@main.route("/")
+@bp.route("/")
 def home():
     return render_template("index.html")
 
 
-@main.route("/randomgen")
+@bp.route("/randomgen")
 def randomgen():
     return render_template("randomgen.html")
 
 
-@main.route("/randomgen/generate", methods=["POST"])
+@bp.route("/randomgen/generate", methods=["POST"])
 def randomgen_generate():
     mode = request.form.get("mode")
     match mode:
@@ -45,12 +45,12 @@ def randomgen_generate():
     """
 
 
-@main.route("/csvsplitter")
+@bp.route("/csvsplitter")
 def csvsplitter():
     return render_template("csvsplitter.html")
 
 
-@main.route("/csvsplitter/upload", methods=["POST"])
+@bp.route("/csvsplitter/upload", methods=["POST"])
 def csvsplitter_upload():
     file = request.files.get("file")
     has_header = request.form.get("has_header") == "1"
@@ -73,12 +73,12 @@ def csvsplitter_upload():
     return response
 
 
-@main.route("/vatcalc")
+@bp.route("/vatcalc")
 def vatcalc():
     return render_template("vatcalc.html")
 
 
-@main.route("/vatcalc/calculate", methods=["POST"])
+@bp.route("/vatcalc/calculate", methods=["POST"])
 def vatcalc_calculate():
     amount = float(request.form.get("amount", 0))
     rate = float(request.form.get("rate", 0))
