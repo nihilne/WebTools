@@ -1,18 +1,13 @@
-import secrets
-
 from flask import (
     Blueprint,
     abort,
     render_template,
     request,
     send_file,
-    url_for,
-    redirect,
 )
 
 from app.services.csv_splitter_service import CsvSplitterService
 from app.services.random_gen_service import RandomGenService
-from app.services.spotify_service import SpotifyService
 from app.services.vat_calc import VatCalc
 
 main = Blueprint("main", __name__)
@@ -90,37 +85,3 @@ def vatcalc_calculate():
     mode = request.form.get("mode")
     result = VatCalc.calculate_vat(amount, rate, mode)
     return f"<p>Result: {result}</p>"
-
-
-@main.route("/spotify")
-def spotify():
-    if not SpotifyService._session_get(SpotifyService.ACCESS_KEY):
-        state = secrets.token_hex(32)
-        SpotifyService._session_set(SpotifyService.STATE_KEY, state)
-        return SpotifyService.request_authorization(state)
-
-    return {"status": "Successfully logged into Spotify!"}
-
-
-@main.route("/spotify/callback")
-def spotify_callback():
-    if SpotifyService._session_get(SpotifyService.ACCESS_KEY):
-        return redirect(url_for(".spotify"))
-
-    if not SpotifyService._session_get(SpotifyService.STATE_KEY):
-        return redirect("main")
-
-    error = request.args.get("error")
-    code = request.args.get("code")
-    state = request.args.get("state")
-
-    if error or not code:
-        abort(403, f"Spotify authorization error: {error or 'missing code'}")
-
-    if state != SpotifyService._session_get(SpotifyService.STATE_KEY):
-        abort(403, "Spotify authorization error: `state` parameter mismatch.")
-
-    SpotifyService._session_delete(SpotifyService.STATE_KEY)
-    SpotifyService.exchange_code(code)
-
-    return redirect(url_for(".spotify"))

@@ -12,7 +12,6 @@ class Config:
         {"name": "Random Generator", "endpoint": "main.randomgen"},
         {"name": "CSV File Splitter", "endpoint": "main.csvsplitter"},
         {"name": "VAT Calculator", "endpoint": "main.vatcalc"},
-        {"name": "Spotify Web API", "endpoint": "main.spotify"},
     ]
 
     SESSION_TYPE = "cachelib"
