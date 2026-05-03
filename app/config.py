@@ -8,6 +8,12 @@ BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 class Config:
     APP_VERSION = "v1.3.1"
 
+    NAV_ITEMS = [
+        {"name": "Random Generator", "endpoint": "randomgen.randomgen"},
+        {"name": "CSV File Splitter", "endpoint": "csvsplitter.csvsplitter"},
+        {"name": "VAT Calculator", "endpoint": "vatcalc.vatcalc"},
+    ]
+
     SESSION_TYPE = "cachelib"
     SESSION_PERMANENT = False
     SESSION_USE_SIGNER = True
