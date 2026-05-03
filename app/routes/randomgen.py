@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request
 
-from app.services.random_gen_service import RandomGenService
+from app.services.randomgen_service import RandomGenService
 
 bp = Blueprint("randomgen", __name__, url_prefix="/randomgen")
 

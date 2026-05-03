@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request
 
-from app.services.vat_calc import VatCalc
+from app.services.vatcalc_service import VatCalc
 
 bp = Blueprint("vatcalc", __name__, url_prefix="/vatcalc")
 

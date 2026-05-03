@@ -6,7 +6,7 @@ from flask import (
     send_file,
 )
 
-from app.services.csv_splitter_service import CsvSplitterService
+from app.services.csvsplitter_service import CsvSplitterService
 
 bp = Blueprint("csvsplitter", __name__, url_prefix="/csvsplitter")
 
