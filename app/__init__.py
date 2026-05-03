@@ -1,9 +1,11 @@
-import secrets
+import os
 
 from dotenv import load_dotenv
 from flask import Flask, render_template, request
 from flask_session import Session
-from werkzeug.exceptions import NotFound, HTTPException
+from werkzeug.exceptions import HTTPException, NotFound
+
+from .database import db
 from .routes import register_blueprints
 
 load_dotenv()
@@ -15,6 +17,9 @@ def create_app(config_class="app.config.Config"):
     app.config.from_object(config_class)
     register_blueprints(app=app)
     Session(app=app)
+    db.init_app(app)
+    with app.app_context():
+        db.create_all()
 
     @app.errorhandler(NotFound)
     def handle_not_found(error):
