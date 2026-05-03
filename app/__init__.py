@@ -4,16 +4,16 @@ from dotenv import load_dotenv
 from flask import Flask, render_template, request
 from flask_session import Session
 from werkzeug.exceptions import NotFound, HTTPException
-from app.routes import register_blueprints
+from .routes import register_blueprints
 
 load_dotenv()
 
 
 def create_app(config_class="app.config.Config"):
     app = Flask(__name__)
-    register_blueprints(app=app)
     app.secret_key = secrets.token_hex(32)
     app.config.from_object(config_class)
+    register_blueprints(app=app)
     Session(app=app)
 
     @app.errorhandler(NotFound)
