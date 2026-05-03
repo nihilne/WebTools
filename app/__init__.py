@@ -11,7 +11,7 @@ load_dotenv()
 
 def create_app(config_class="app.config.Config"):
     app = Flask(__name__)
-    app.secret_key = secrets.token_hex(32)
+    app.secret_key = os.environ["APP_KEY"]
     app.config.from_object(config_class)
     register_blueprints(app=app)
     Session(app=app)
