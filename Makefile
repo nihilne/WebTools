@@ -1,4 +1,4 @@
-.PHONY: dev watch-css npm css js build run deploy docker-build docker-run
+.PHONY: dev watch-css npm css js build run deploy docker-build docker-run db-init db-migrate db-upgrade db-downgrade db-reset
 
 dev:
 	flask run --debug
@@ -25,7 +25,7 @@ run:
 stop:
 	docker compose down
 
-build: npm css js 
+build: npm css js
 	docker build -t nihilne/webtools .
 
 deploy: build run
