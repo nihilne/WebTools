@@ -22,3 +22,6 @@ class Config:
         threshold=500,
         default_timeout=3600,
     )
+
+    SQLALCHEMY_DATABASE_URI = os.environ["DATABASE_URL"]
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
