@@ -1,29 +1,37 @@
-.PHONY: dev watch-css npm css js build run deploy docker-build docker-run
+.PHONY: dev tailwind install-npm install-htmx build-css build-js build-docker build-all run stop deploy
+
+HTMX_VERSION = 2.0.10
 
 dev:
 	flask run --debug
 
-sort-imports:
-	ruff check --select I --fix
-
-watch-css:
+tailwind:
 	npx tailwindcss -i app/static/css/input.css -o app/static/css/styles.css --watch
 
-npm:
-	npm install
+install-npm:
+	npm ci
 
-css:
+install-htmx:
+	curl -o app/static/js/htmx.min.js https://cdn.jsdelivr.net/npm/htmx.org@$(HTMX_VERSION)/dist/htmx.min.js
+
+build-css:
 	npx tailwindcss -m -i app/static/css/input.css -o app/static/css/styles.css
 
-js:
+build-js:
 	npx terser app/static/js/main.js \
 	-o app/static/js/main.min.js -c -m
 
-run:
-	docker rm -f webtools || true
-	docker run -d --name webtools -p 127.0.0.1:8000:8000 nihilne/webtools
-
-build: npm css js 
+build-docker:
 	docker build -t nihilne/webtools .
 
-deploy: build run
+build-all: install-npm install-htmx build-css build-js build-docker
+
+run:
+	docker compose up -d
+
+stop:
+	docker compose down
+
+restart: stop run
+
+deploy: build-all run

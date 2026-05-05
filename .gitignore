@@ -222,4 +222,5 @@ __marimo__/
 node_modules
 styles.css
 main.min.js
+htmx.min.js
 flask_session/
