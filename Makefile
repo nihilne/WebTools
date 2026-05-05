@@ -1,9 +1,9 @@
-.PHONY: dev tailwind install-npm install-htmx build-css build-js build-docker build-all run stop deploy
+.PHONY: dev tailwind install-npm install-htmx build-css build-js build-docker build-all run stop restart deploy
 
 HTMX_VERSION = 2.0.10
 
 dev:
-	flask run --debug
+	docker compose up dev db adminer -d
 
 tailwind:
 	npx tailwindcss -i app/static/css/input.css -o app/static/css/styles.css --watch
