@@ -6,7 +6,7 @@ bp = Blueprint("randomgen", __name__, url_prefix="/randomgen")
 
 
 @bp.route("/")
-def randomgen():
+def index():
     return render_template("randomgen.html")
 
 

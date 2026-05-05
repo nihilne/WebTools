@@ -6,7 +6,7 @@ bp = Blueprint("vatcalc", __name__, url_prefix="/vatcalc")
 
 
 @bp.route("/")
-def vatcalc():
+def index():
     return render_template("vatcalc.html")
 
 

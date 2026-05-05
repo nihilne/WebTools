@@ -12,7 +12,7 @@ bp = Blueprint("csvsplitter", __name__, url_prefix="/csvsplitter")
 
 
 @bp.route("/")
-def csvsplitter():
+def index():
     return render_template("csvsplitter.html")
 
 

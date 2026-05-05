@@ -6,7 +6,7 @@ bp = Blueprint("jsonformatter", __name__, url_prefix="/jsonformatter")
 
 
 @bp.route("/")
-def jsonformatter():
+def index():
     return render_template("jsonformatter.html")
 
 
