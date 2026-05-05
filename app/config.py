@@ -6,7 +6,7 @@ BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 
 
 class Config:
-    APP_VERSION = "v1.4"
+    APP_VERSION = "v1.5"
 
     SESSION_TYPE = "cachelib"
     SESSION_PERMANENT = False
