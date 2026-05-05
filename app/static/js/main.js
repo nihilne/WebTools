@@ -20,6 +20,12 @@ function randomNumber() {
     return Math.floor(Math.random() * 15);
 }
 
+function buildOrderJSON() {
+    const items = document.querySelectorAll("#settings-list li");
+    const order = Array.from(items).map(el => el.dataset.id);
+    document.getElementById("order-input").value = order.join(",");
+}
+
 function animateToolIcons() {
     if (randomNumber() != randomNumber()) {
         return;
@@ -34,4 +40,10 @@ function animateToolIcons() {
 
 window.addEventListener("load", () => {
     animateToolIcons();
+    new Sortable(document.getElementById("settings-list"), {
+        animation: 150,
+        ghostClass: "opacity-50",
+        dragClass: "scale-105",
+        handle: null,
+    });
 });

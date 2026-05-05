@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Menu Editor{% endblock %}
+{% block content %}
+<h1 class="text-3xl">Menu Editor</h1>
+<p class="mb-4">Reorder menu items.</p>
+<form id="order-form" hx-post="{{ url_for('settings_menueditor.reorder') }}" hx-swap="none"
+    hx-on::after-request="window.location.reload()" hx-on:submit="buildOrderJSON()" class="mx-4">
+    <input type="hidden" name="order" id="order-input">
+    <ul id="settings-list" class="space-y-3">
+        {% for item in menu_items %}
+        <li data-id="{{ item.id }}" class="p-2 max-w-sm border rounded bg-white cursor-move">
+            {{ item.name }}
+        </li>
+        {% endfor %}
+    </ul>
+    <button type="submit"
+        class="cursor-pointer mt-4 px-4 py-2 bg-green-500 text-white rounded-lg hover:scale-105 transition duration-75">
+        Save
+    </button>
+</form>
+{% endblock %}
