@@ -14,7 +14,6 @@ install-npm:
 install-htmx:
 	curl -o app/static/js/htmx.min.js https://cdn.jsdelivr.net/npm/htmx.org@$(HTMX_VERSION)/dist/htmx.min.js
 
-
 build-css:
 	npx tailwindcss -m -i app/static/css/input.css -o app/static/css/styles.css
 
