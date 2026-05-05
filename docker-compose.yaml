@@ -20,8 +20,7 @@ services:
       - .:/app
     env_file:
       - .env
-    environment:
-      FLASK_DEBUG: 1
+    command: flask run --debug
     depends_on:
       db:
         condition: service_healthy
