@@ -17,4 +17,6 @@ Run `make deploy` to:
 - Build the Docker image
 - Start the application and database using Docker Compose
 
+After starting the application, run the `flask seed` command inside the container to populate the database with important data, such as the tool menu.
+
 Also make sure that all environment variables are set (as in .env.example).
