@@ -32,4 +32,6 @@ run:
 stop:
 	docker compose down
 
+restart: stop run
+
 deploy: build-all run
