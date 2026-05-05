@@ -7,7 +7,8 @@ services:
     env_file:
       - .env
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     restart: unless-stopped
 
   dev:
@@ -22,7 +23,8 @@ services:
     environment:
       FLASK_DEBUG: 1
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 
   db:
     image: mariadb:11
@@ -34,6 +36,12 @@ services:
     volumes:
       - db_data:/var/lib/mysql
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      start_period: 10s
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
   adminer:
     image: adminer
