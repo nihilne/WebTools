@@ -1,4 +1,4 @@
-.PHONY: dev tailwind install-npm install-htmx build-css build-js build-docker build-all run stop restart deploy
+.PHONY: dev tailwind install-npm install-htmx build-css build-js build-docker build-all run stop restart restart-dev deploy
 
 HTMX_VERSION = 2.0.10
 
@@ -33,5 +33,7 @@ stop:
 	docker compose down
 
 restart: stop run
+
+restart-dev: stop dev
 
 deploy: build-all run
