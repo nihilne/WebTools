@@ -29,7 +29,7 @@ build-docker:
 build-all: install-npm install-js-pkgs build-css build-js build-docker
 
 run:
-	docker compose up -d
+	docker compose up web db -d
 
 stop:
 	docker compose down
