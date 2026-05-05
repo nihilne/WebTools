@@ -6,7 +6,10 @@ from flask_session import Session
 from werkzeug.exceptions import HTTPException, NotFound
 
 from .database import db
+from .models.menu import Menu
+
 from .routes import register_blueprints
+from .cli import register_commands
 
 load_dotenv()
 
@@ -16,6 +19,7 @@ def create_app(config_class="app.config.Config"):
     app.secret_key = os.environ["APP_KEY"]
     app.config.from_object(config_class)
     register_blueprints(app=app)
+    register_commands(app)
     Session(app=app)
     db.init_app(app)
     with app.app_context():
@@ -37,8 +41,9 @@ def create_app(config_class="app.config.Config"):
 
     @app.context_processor
     def inject_context():
+        nav_items = Menu.query.filter_by(enabled=True).order_by(Menu.position).all()
         return {
-            "nav_items": app.config["NAV_ITEMS"],
+            "nav_items": nav_items,
             "app_version": app.config["APP_VERSION"],
         }
 
