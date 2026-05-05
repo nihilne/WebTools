@@ -33,7 +33,9 @@
         <div class="sidebar w-64 my-6 py-4 bg-main-red rounded-r-4xl shadow-xl text-white">
             <div class="flex justify-center gap-2">
                 <i class="fa-solid fa-screwdriver-wrench text-xl my-2 tool-icon"></i>
-                <a href=""><i class="fa-solid fa-gear text-xl my-2 tool-icon"></i></a>
+                <a href="{{ url_for('settings_main.index') }}">
+                    <i class="fa-solid fa-gear text-xl my-2 tool-icon"></i>
+                </a>
                 <i class="fa-solid fa-scissors text-xl my-2 tool-icon"></i>
             </div>
             <h1 class="text-3xl text-center font-bold"><a href="{{ url_for('main.index') }}">WebTools</a></h1>

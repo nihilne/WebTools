@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Settings{% endblock %}
+{% block content %}
+<h1 class="text-3xl mb-4"><span class="text-main-red">WebTools</span> Settings</h1>
+<ul class="list-disc space-y-3 mx-4">
+    {% for item in available_settings %}
+    <li>
+        <a href="{{ url_for(item.endpoint) }}"
+            class="px-3 py-2 underline decoration-main-red hover:scale-105 transition duration-75">
+            {{ item.name }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
