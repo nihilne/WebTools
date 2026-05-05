@@ -24,7 +24,7 @@ def randomgen_generate():
     return f"""
     <div class="w-min mt-4 p-3 border rounded-lg flex items-center justify-start">
         <span id="generated-key">{key}</span>
-        <button type="button" onclick="copyKey(this)"
+        <button type="button" onclick="copyToClipboard(this, 'generated-key')"
             class="cursor-pointer ml-4 px-3 py-1 bg-green-600 text-white rounded-lg hover:scale-105 transition duration-75">
             Copy
         </button>
