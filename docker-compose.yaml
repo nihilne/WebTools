@@ -3,7 +3,7 @@ services:
     build: .
     image: nihilne/webtools:latest
     ports:
-      - "127.0.0.1:8000:8000"
+      - "8000:8000"
     env_file:
       - .env
     depends_on:
@@ -24,7 +24,8 @@ services:
   adminer:
     image: adminer
     ports:
-      - "127.0.0.1:8080:8080"
+      - "8080:8080"
+    restart: unless-stopped
 
 volumes:
   db_data:
