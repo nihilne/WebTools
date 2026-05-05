@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}JSON Formatter{% endblock %}
+{% block content %}
+<h1 class="text-3xl">JSON Formatter</h1>
+<p>Format a JSON string.</p>
+<form hx-post="/jsonformatter/format" hx-target="#output" hx-swap="innerHTML" class="my-4">
+    <label for="json_textarea"></label>
+    <textarea name="json_str" id="json_textarea"
+        class="flex items-center gap-2 w-full max-w-xl h-28 min-h-16 p-3 border rounded-lg font-mono text-sm resize-y"></textarea>
+    <label class="flex items-center gap-2 mt-4">
+        <span>Indentation:</span>
+        <input type="number" name="indentation" step="1" value="2" class="border rounded-lg px-2 py-2 w-24" required>
+    </label>
+    <button type="submit"
+        class="cursor-pointer mt-4 px-4 py-2 bg-purple-600 text-white rounded-lg hover:scale-105 transition duration-75">
+        Format
+    </button>
+    <div class="my-4" id="output"></div>
+</form>
+{% endblock %}
