@@ -9,6 +9,8 @@
 
 A simple website that contains a variety of useful tools, all in one place!
 
+## Installation
+
 You'll need Docker, make, and npm to install all the required packages.
 
 Run `make deploy` to:
@@ -17,6 +19,14 @@ Run `make deploy` to:
 - Build the Docker image
 - Start the application and database using Docker Compose
 
-After starting the application, run the `flask seed` command inside the container to populate the database with important data, such as the tool menu.
+After starting the application, run the `flask seed` command inside the container to populate the database with important data, such as the tools menu.
 
 Also make sure that all environment variables are set (as in .env.example).
+
+## Development
+
+Run `make dev` to start a container that uses the local copy of the project (useful for seeing live changes).
+
+This also runs an Adminer container for easier access to the database, which can be accessed via localhost:8080.
+
+`make tailwind` starts Tailwind CLI in watch mode.
