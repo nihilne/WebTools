@@ -40,10 +40,14 @@ function animateToolIcons() {
 
 window.addEventListener("load", () => {
     animateToolIcons();
-    new Sortable(document.getElementById("settings-list"), {
-        animation: 150,
-        ghostClass: "opacity-50",
-        dragClass: "scale-105",
-        handle: null,
-    });
+
+    const list = document.getElementById("settings-list");
+    if (list && typeof Sortable !== "undefined") {
+        new Sortable(list, {
+            animation: 150,
+            ghostClass: "opacity-50",
+            dragClass: "scale-105",
+            handle: null,
+        });
+    }
 });
