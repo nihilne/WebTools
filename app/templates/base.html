@@ -4,11 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- PRELOADS (type shi) -->
-    <link rel="preload" href="{{ url_for('static', filename='webfonts/Montserrat/Montserrat-VariableFont_wght.ttf') }}"
-        as="font" type="font/ttf" crossorigin>
-    <!-- EXTRAS (if any) -->
-    {% block head_extra %}{% endblock %}
     <!-- ASSETS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/fontawesome.min.css') }}">
@@ -19,6 +14,8 @@
     <script src="{{ url_for('static', filename='js/main.min.js') }}" defer></script>
     <link rel="shortcut icon" href="{{ url_for('static', filename='assets/favicon.ico') }}">
     <title>{% block title %}{% endblock %} | WebTools</title>
+    <!-- EXTRAS (if any) -->
+    {% block head_extra %}{% endblock %}
 </head>
 
 <body class="min-h-screen flex flex-col bg-off-white font-montserrat font-medium">
