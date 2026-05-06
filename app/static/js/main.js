@@ -40,9 +40,13 @@ function animateToolIcons() {
 
 window.addEventListener("load", () => {
     animateToolIcons();
-    // new Sortable(list, {
-    //     animation: 150,
-    //     ghostClass: "opacity-50",
-    //     dragClass: "scale-105",
-    // });
+    const list = document.getElementById("settings-list");
+    if (list && typeof Sortable !== "undefined") {
+        new Sortable(list, {
+            animation: 150,
+            ghostClass: "opacity-50",
+            dragClass: "scale-105",
+            handle: null,
+        });
+    }
 });

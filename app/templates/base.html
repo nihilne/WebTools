@@ -13,6 +13,10 @@
     <script src="{{ url_for('static', filename='js/htmx.min.js') }}" defer></script>
     <script src="{{ url_for('static', filename='js/main.min.js') }}" defer></script>
     <link rel="shortcut icon" href="{{ url_for('static', filename='assets/favicon.ico') }}">
+    <script>
+        /* to prevent Firefox FOUC, this must be here */
+        let FF_FOUC_FIX;
+    </script>
     <title>{% block title %}{% endblock %} | WebTools</title>
     <!-- EXTRAS (if any) -->
     {% block head_extra %}{% endblock %}
