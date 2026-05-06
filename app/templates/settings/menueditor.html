@@ -1,4 +1,7 @@
 {% extends "base.html" %}
+{% block head_extra %}
+<script src="{{ url_for('static', filename='js/Sortable.min.js') }}"></script>
+{% endblock %}
 {% block title %}Menu Editor{% endblock %}
 {% block content %}
 <h1 class="text-3xl">Menu Editor</h1>
