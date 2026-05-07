@@ -19,8 +19,8 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            echo "[$(date)] Deploying via GitHub Actions..." >> /var/log/github_actions_deploy.log
+            echo "[$(date)] Deploying via GitHub Actions..." >> /opt/webtools/github_actions_deploy.log
             cd /opt/webtools
             git pull origin main
             make deploy
-            echo "[$(date)] Done!" >> /var/log/github_actions_deploy.log
+            echo "[$(date)] Done!" >> /opt/webtools/github_actions_deploy.log
