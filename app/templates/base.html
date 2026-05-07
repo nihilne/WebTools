@@ -36,10 +36,16 @@
             <p class=" text-center mb-4">{{ app_version }}</p>
             <nav class="space-y-3 mx-4">
                 {% for item in nav_items %}
+                {% if request.endpoint == item.endpoint %}
+                <span class="block px-3 py-2 rounded-lg bg-darker-red scale-105">
+                    {{ item.name }}
+                </span>
+                {% else %}
                 <a href="{{ url_for(item.endpoint) }}"
                     class="block px-3 py-2 rounded-lg hover:bg-darker-red hover:scale-105 transition duration-75">
                     {{ item.name }}
                 </a>
+                {% endif %}
                 {% endfor %}
             </nav>
         </div>
