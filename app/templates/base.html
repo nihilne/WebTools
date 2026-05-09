@@ -26,11 +26,12 @@
     <div class="flex flex-1">
         <div class="sidebar w-64 my-6 py-4 bg-main-red rounded-r-4xl shadow-xl text-white">
             <div class="flex justify-center gap-2">
-                <i class="fa-solid fa-screwdriver-wrench text-xl my-2 tool-icon"></i>
                 <a href="{{ url_for('settings_main.index') }}">
                     <i class="fa-solid fa-gear text-xl my-2 tool-icon"></i>
                 </a>
-                <i class="fa-solid fa-scissors text-xl my-2 tool-icon"></i>
+                <a href="#" onclick="toggleDark()">
+                    <i id="theme-icon" class="fa-solid fa-moon text-xl my-2 tool-icon"></i>
+                </a>
             </div>
             <h1 class="text-3xl text-center font-bold"><a href="{{ url_for('main.index') }}">WebTools</a></h1>
             <p class=" text-center mb-4">{{ app_version }}</p>

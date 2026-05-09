@@ -17,7 +17,7 @@ function setVAT(value) {
 }
 
 function randomNumber() {
-    return Math.floor(Math.random() * 15);
+    return Math.floor(Math.random() * 30);
 }
 
 function buildOrderJSON() {
@@ -27,7 +27,7 @@ function buildOrderJSON() {
 }
 
 function animateToolIcons() {
-    if (randomNumber() != randomNumber()) {
+    if (randomNumber() !== 0) {
         return;
     }
     const icons = document.querySelectorAll(".tool-icon");
