@@ -8,7 +8,7 @@ bp = Blueprint("settings_menueditor", __name__, url_prefix="/settings/menueditor
 
 @bp.route("/")
 def index():
-    menu_items = Menu.query.filter_by(enabled=True).order_by(Menu.position).all()
+    menu_items = Menu.get_enabled()
     return render_template("settings/menueditor.html", menu_items=menu_items)
 
 

@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request
 
-from app.services.vatcalc_service import VatCalc
+from app.services.vatcalc_service import VatCalcService
 
 bp = Blueprint("vatcalc", __name__, url_prefix="/vatcalc")
 
@@ -15,5 +15,5 @@ def vatcalc_calculate():
     amount = float(request.form.get("amount", 0))
     rate = float(request.form.get("rate", 0))
     mode = request.form.get("mode")
-    result = VatCalc.calculate_vat(amount, rate, mode)
+    result = VatCalcService.calculate_vat(amount, rate, mode)
     return f"<p>Result: {result}</p>"

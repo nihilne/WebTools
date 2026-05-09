@@ -1,7 +1,6 @@
 import os
 
 from dotenv import load_dotenv
-from sqlalchemy import select
 from flask import Flask, render_template, request
 from flask_session import Session
 from werkzeug.exceptions import HTTPException, NotFound
@@ -42,15 +41,8 @@ def create_app(config_class="app.config.Config"):
 
     @app.context_processor
     def inject_context():
-        nav_items = (
-            db.session.execute(
-                select(Menu).filter_by(enabled=True).order_by(Menu.position)
-            )
-            .scalars()
-            .all()
-        )
         return {
-            "nav_items": nav_items,
+            "nav_items": Menu.get_enabled(),
             "app_version": app.config["APP_VERSION"],
         }
 
