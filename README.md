@@ -2,6 +2,7 @@
 
 ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff)
 ![Flask](https://img.shields.io/badge/Flask-000?logo=flask&logoColor=fff)
+![HTMX](https://img.shields.io/badge/HTMX-36C?logo=htmx&logoColor=fff)
 ![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)
 ![GitHub Release](https://img.shields.io/github/v/release/nihilne/WebTools)
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/nihilne/WebTools/lint.yml)
