@@ -1,4 +1,4 @@
-class VatCalc:
+class VatCalcService:
     @staticmethod
     def calculate_vat(amount, rate, mode):
         if amount is None:
