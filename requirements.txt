@@ -3,6 +3,4 @@ flask-session[cachelib]
 flask-sqlalchemy
 pymysql
 gunicorn
-python-dotenv
 requests
-ruff
