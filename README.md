@@ -25,8 +25,10 @@ Also make sure that all environment variables are set (as in .env.example).
 
 ## Development
 
+`pip install -r requirements-dev.txt` installs all dependencies plus dev-related packages for linting, testing and loading from .env.
+
 Run `make dev` to start a container that uses the local copy of the project (useful for seeing live changes).
 
-This also runs an Adminer container for easier access to the database, which can be accessed via localhost:8080.
+This also runs an Adminer container on localhost:8080 for easier access to the database.
 
 `make tailwind` starts Tailwind CLI in watch mode.
