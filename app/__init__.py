@@ -1,6 +1,5 @@
 import os
 
-from dotenv import load_dotenv
 from flask import Flask, render_template, request
 from flask_session import Session
 from werkzeug.exceptions import HTTPException, NotFound
@@ -10,8 +9,6 @@ from .models.menu import Menu
 
 from .routes import register_blueprints
 from .cli import register_commands
-
-load_dotenv()
 
 
 def create_app(config_class="app.config.Config"):

@@ -2,4 +2,3 @@
 
 pytest
 ruff
-python-dotenv
