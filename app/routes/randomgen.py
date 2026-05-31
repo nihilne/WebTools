@@ -10,14 +10,32 @@ def index():
     return render_template("randomgen.html")
 
 
+@bp.route("/mode", methods=["POST"])
+def randomgen_mode():
+    mode = request.form.get("mode")
+
+    if mode == "uuid3":
+        return """
+        <label class="flex items-center gap-2">
+            <span>Username:</span>
+            <input type="text" name="username" class="border rounded px-2 py-2" placeholder="Steve">
+        </label>
+        """
+
+    return ""
+
+
 @bp.route("/generate", methods=["POST"])
 def randomgen_generate():
     mode = request.form.get("mode")
     match mode:
         case "sha":
             key = RandomGenService.generate_custom_sha1()
-        case "uuid":
+        case "uuid4":
             key = RandomGenService.generate_uuidv4()
+        case "uuid3":
+            username = request.form.get("username", "")
+            key = RandomGenService.generate_minecraft_uuid(username)
         case _:
             key = None
 
