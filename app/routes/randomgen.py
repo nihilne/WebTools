@@ -18,7 +18,7 @@ def randomgen_mode():
         return """
         <label class="flex items-center gap-2 mt-4">
             <span>Username:</span>
-            <input type="text" name="username" class="border rounded px-2 py-2" placeholder="Steve">
+            <input type="text" name="username" class="border rounded px-2 py-2" placeholder="Steve" required>
         </label>
         """
 

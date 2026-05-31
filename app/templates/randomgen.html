@@ -6,8 +6,8 @@
 <form hx-post="/randomgen/generate" hx-target="#output" hx-swap="innerHTML" class="my-4">
     <label class="flex items-center gap-2">
         <span>Generator:</span>
-        <select name="mode" hx-post="/randomgen/mode" hx-target="#mode-extra" hx-swap="innerHTML"
-            class="cursor-pointer border rounded px-2 py-2">
+        <select name="mode" hx-post="/randomgen/mode" hx-trigger="load, change" hx-target="#mode-extra"
+            hx-swap="innerHTML" class="cursor-pointer border rounded px-2 py-2">
             <option value="sha">SHA1 w/ Random Parameter</option>
             <option value="uuid4">UUID v4</option>
             <option value="uuid3">Minecraft Offline UUIDv3</option>
