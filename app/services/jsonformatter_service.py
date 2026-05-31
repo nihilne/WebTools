@@ -6,7 +6,7 @@ class JsonFormatterService:
     def format_json(json_str: str, indentation: int):
         try:
             parsed = json.loads(json_str)
-            formatted = json.dumps(parsed, indent=indentation)
+            formatted = json.dumps(parsed, indent=indentation, ensure_ascii=False)
         except json.JSONDecodeError as e:
             return f"""
             <div class="text-red-600 mt-4">
