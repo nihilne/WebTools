@@ -16,7 +16,7 @@ def randomgen_mode():
 
     if mode == "uuid3":
         return """
-        <label class="flex items-center gap-2">
+        <label class="flex items-center gap-2 mt-4">
             <span>Username:</span>
             <input type="text" name="username" class="border rounded px-2 py-2" placeholder="Steve">
         </label>
@@ -34,7 +34,7 @@ def randomgen_generate():
         case "uuid4":
             key = RandomGenService.generate_uuidv4()
         case "uuid3":
-            username = request.form.get("username", "")
+            username = request.form.get("username", "Steve")
             key = RandomGenService.generate_minecraft_uuid(username)
         case _:
             key = None

@@ -17,4 +17,4 @@ class RandomGenService:
     @staticmethod
     def generate_minecraft_uuid(username: str):
         """Generates the offline UUID of a Minecraft username"""
-        return uuid.uuid3(uuid.NAMESPACE_OID, f"OfflinePlayer:{username.strip}")
+        return uuid.uuid3(uuid.NAMESPACE_OID, f"OfflinePlayer:{username.strip()}")
