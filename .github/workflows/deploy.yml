@@ -10,8 +10,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     environment:
-      name: production
-      url: https://excla.xyz
+      name: testing
     steps:
       - name: Deploy to server via SSH
         uses: appleboy/ssh-action@v1.2.5
