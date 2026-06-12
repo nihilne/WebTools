@@ -21,6 +21,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             echo "[$(date)] Deploying via GitHub Actions..." >> /opt/webtools/github_actions_deploy.log
+            sudo chown -R ${{ secrets.SSH_USER }}:${{ secrets.SSH_USER }} /opt/webtools
             cd /opt/webtools
             git pull origin main
             make deploy
