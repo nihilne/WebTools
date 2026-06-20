@@ -8,7 +8,7 @@
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/nihilne/WebTools/lint.yml)
 ![GitHub License](https://img.shields.io/github/license/nihilne/WebTools)
 
-A simple website that contains a variety of useful tools, all in one place!
+A practical website with a variety of (mainly dev) tools.
 
 ## Installation
 
@@ -20,7 +20,7 @@ Run `make deploy` to:
 - Build the Docker image
 - Start the application and database using Docker Compose
 
-After starting the application, run the `flask seed` command inside the container to populate the database with important data, such as the tools menu.
+After starting the application, run the `flask seed` command inside the container to populate the database with important data, such as the sidebar menu.
 
 Also make sure that all environment variables are set (as in .env.example).
 
