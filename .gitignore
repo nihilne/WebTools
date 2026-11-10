@@ -220,8 +220,3 @@ __marimo__/
 # Custom
 .vscode
 node_modules
-styles.css
-main.min.js
-htmx.min.js
-Sortable.min.js
-flask_session/
