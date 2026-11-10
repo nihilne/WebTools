@@ -30,7 +30,7 @@ def randomgen_generate():
     mode = request.form.get("mode")
     match mode:
         case "sha":
-            key = RandomGenService.generate_custom_sha1()
+            key = RandomGenService.generate_random_sha1()
         case "uuid4":
             key = RandomGenService.generate_uuidv4()
         case "uuid3":

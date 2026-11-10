@@ -4,13 +4,13 @@ from app.models.menu import Menu
 
 seed_data = [
     Menu(
-        name="Random Generator",
+        name="Generators",
         endpoint="randomgen.index",
         position=0,
         enabled=True,
     ),
     Menu(
-        name="CSV File Splitter",
+        name="CSV Row Splitter",
         endpoint="csvsplitter.index",
         position=1,
         enabled=True,
