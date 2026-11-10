@@ -6,12 +6,14 @@ import uuid
 
 class RandomGenService:
     @staticmethod
-    def generate_custom_sha1():
+    def generate_random_sha1():
+        """Generates the SHA1 hash of a random string"""
         key = str(time.time() + (secrets.randbelow(9999999) + 1))
         return hashlib.sha1(key.encode()).hexdigest()
 
     @staticmethod
     def generate_uuidv4():
+        """Generates a random UUIDv4 string"""
         return uuid.uuid4()
 
     @staticmethod
