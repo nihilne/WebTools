@@ -1,0 +1,2 @@
+# ignores flask-generates sessions directory
+flask_session/

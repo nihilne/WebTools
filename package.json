@@ -1,8 +1,14 @@
 {
   "dependencies": {
-    "@tailwindcss/cli": "^4.2.4",
-    "sortablejs": "^1.15.7",
-    "tailwindcss": "^4.2.4",
-    "terser": "^5.46.2"
+    "htmx.org": "^2.0.11",
+    "sortablejs": "^1.15.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.5",
+    "tailwindcss": "^4.3.5",
+    "terser": "^5.51.2"
+  },
+  "scripts": {
+    "postinstall": "node scripts/copy-vendor.mjs"
   }
 }
